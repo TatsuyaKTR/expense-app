@@ -1,6 +1,8 @@
+const expensesData = require("./data/expenses.json");
+
 module.exports = {
-  "GET /api/user": (req, res) => {
-    res.send({ id: 1, name: "Taro" });
+  "GET /expenses": (req, res) => {
+    res.send(expensesData);
   },
   "POST /login": (req, res) => {
     const { username, password } = req.body;
