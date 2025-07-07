@@ -20,9 +20,9 @@
           </td>
         </tr>
         <tr>
-          <th>名前</th>
+          <th>内容</th>
           <td>
-            <input type="text" v-model="name" placeholder="ex.)宿代" />
+            <input type="text" v-model="content" placeholder="ex.)宿代" />
           </td>
         </tr>
         <tr>
@@ -49,8 +49,8 @@ export default {
     return {
       // バックエンドから受信するべき
       categoryList: ["給与", "賞与", "年金", "その他"],
-
       date: this.getToday(),
+      content: "",
       category: "",
       price: "",
       memo: "",
@@ -68,6 +68,7 @@ export default {
       try {
         const response = await axios.post("http://localhost:8080/register", {
           date: this.date,
+          content: this.content,
           category: this.category,
           price: this.price,
           memo: this.memo,
